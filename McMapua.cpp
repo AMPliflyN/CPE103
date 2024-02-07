@@ -153,3 +153,44 @@ int McMapuaSystem::addOrder(char selected)
     cin >> qty;
     return qty;
 }
+
+void McMapuaSystem::Receipt()
+{
+    system("cls");
+    cout << "===== Receipt =====\n";
+
+    ofstream outFile("Receipt.txt");  // Open a text file for writing
+
+    if (!outFile.is_open())
+    {
+        cout << "Error: Unable to create the receipt file.\n";
+        return;
+    }
+
+    // Write the receipt content to the file
+    outFile << "McMapua Receipt\n\n";
+    outFile << "#\tItem\t\tPrice\t\tQty\n";
+
+    const string items[] = {"Burger", "Pizza", "Pasta", "Salad", "Fries", "Drink"};
+
+    double prices[] = {5.99, 8.99, 7.49, 4.99, 2.99, 1.99};
+
+    double total = 0.0;
+
+    for (int i = 0; i < 6; ++i)
+    {
+        if (order[i] > 0)
+        {
+            double subtotal = prices[i] * order[i];
+            outFile << i + 1 << "\t" << items[i] << "\t$" << prices[i] << "\t\t" << order[i] << "\n";
+            total += subtotal;
+        }
+    }
+
+    outFile << "\nTotal: $" << fixed << setprecision(2) << total;
+
+    cout << "Receipt saved to Receipt.txt\n";
+
+    outFile.close();  // Close the file
+}
+  
