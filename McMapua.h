@@ -9,6 +9,7 @@ public:
     void MainMenu();
     void FoodMenu();
     void OrderNew();
+    void Receipt();
     int addOrder(char);
     
 private:
