@@ -5,7 +5,6 @@
 class McMapuaSystem
 {
 public:
-    void TestMode();
     void MainMenu();
     void FoodMenu();
     void OrderMenu(bool);
