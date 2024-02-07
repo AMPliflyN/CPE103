@@ -5,10 +5,10 @@
 class McMapuaSystem
 {
 public:
-    void MainMenu();
+    void MainMenu(bool);
     void FoodMenu();
     void OrderMenu(bool);
-    void Receipt();
+    void Receipt(bool);
     int addOrder(char);
     
 private:
