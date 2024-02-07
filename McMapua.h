@@ -1,3 +1,6 @@
+#ifndef MCMAPUA_H
+#define MCMAPUA_H
+
 #include <iostream>
 #include <fstream>
 #include <iomanip>
@@ -14,3 +17,5 @@ public:
 private:
     int order[6];
 };
+
+#endif
