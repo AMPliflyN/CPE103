@@ -6,6 +6,10 @@
 
 using namespace std;
 
+//Start Menu 
+
+//Test Mode for Developer
+
 void McMapuaSystem::TestMode()
 {   
     system("cls");
@@ -17,6 +21,7 @@ void McMapuaSystem::TestMode()
 
     do
     {
+       
         if (kbhit())
         switch (getch())
         {
@@ -45,6 +50,9 @@ void McMapuaSystem::TestMode()
 
     } while (true);
 }
+
+
+
 
 void McMapuaSystem::MainMenu()
 {
@@ -79,6 +87,9 @@ void McMapuaSystem::MainMenu()
     } while (true);
 }
 
+
+/*Function for Order inputs
+Prints out menu list*/
 void McMapuaSystem::FoodMenu() 
 {
     cout << "#\tItem\tPrice\tQty\n"
@@ -91,6 +102,8 @@ void McMapuaSystem::FoodMenu()
     << "===============================" << endl;
 }
 
+
+//Gets the numerical value and collects them as the number of orders per meal
 void McMapuaSystem::OrderNew()
 {
     bool loop =  true;
@@ -119,6 +132,8 @@ void McMapuaSystem::OrderNew()
 
     } while (loop);
 }
+
+
 
 int McMapuaSystem::addOrder()
 {
