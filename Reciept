@@ -2,7 +2,7 @@
 
 void McMapuaSystem::Receipt()
 {
-    system("cls");  // Clear console screen (consider platform-independent alternatives)
+    system("cls");
     cout << "===== Receipt =====\n";
 
     ofstream outFile("Receipt.txt");  // Open a text file for writing
