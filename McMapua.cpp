@@ -170,7 +170,7 @@ void McMapuaSystem::Receipt()
 
     // Write the receipt content to the file
     outFile << "McMapua Receipt\n\n";
-    outFile << "#\tItem\t\tPrice\t\tQty\t\tPerItemCost\n";
+    outFile << "#\tItem\tPrice\t\tQty\t\tPerItemCost\n";
 
     const string items[] = {"Burger", "Pizza", "Pasta", "Salad", "Fries", "Drink"};
 
@@ -195,4 +195,3 @@ void McMapuaSystem::Receipt()
 
     outFile.close();  // Close the file
 }
-  
