@@ -16,12 +16,13 @@ void McMapuaSystem::TestMode()
     cout << "===== Welcome to TestMode! =====\n"
     << "1. MainMenu\n"
     << "2. FoodMenu\n"
+    << "3. OrderNew\n"
+    << "4. addOrder\n"
     << "Any other Key (Exit)\n"
     << "===============================" << endl;
 
     do
     {
-       
         if (kbhit())
         switch (getch())
         {
@@ -44,15 +45,16 @@ void McMapuaSystem::TestMode()
                 break;
             case '3':
                 OrderNew();
+                break;
+            case '4':
+                cout << "addOrder Returned: " << addOrder('E') << endl;
+                return;
             default:
                 return;
         }
 
     } while (true);
 }
-
-
-
 
 void McMapuaSystem::MainMenu()
 {
