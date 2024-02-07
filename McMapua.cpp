@@ -77,6 +77,7 @@ void McMapuaSystem::MainMenu()
                     break;
                 case '2':
                     cout << "Calculate Order\n";
+                    Receipt();
                     break;
                 case '3':
                     cout << "Import Previous Order\n";
