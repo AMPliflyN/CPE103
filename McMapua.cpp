@@ -170,7 +170,7 @@ void McMapuaSystem::Receipt()
 
     // Write the receipt content to the file
     outFile << "McMapua Receipt\n\n";
-    outFile << "#\tItem\t\tPrice\t\tQty\n";
+    outFile << "#\tItem\t\tPrice\t\tQty\tPerItemType\n";
 
     const string items[] = {"Burger", "Pizza", "Pasta", "Salad", "Fries", "Drink"};
 
@@ -178,12 +178,13 @@ void McMapuaSystem::Receipt()
 
     double total = 0.0;
 
+    
     for (int i = 0; i < 6; ++i)
     {
         if (order[i] > 0)
         {
             double subtotal = prices[i] * order[i];
-            outFile << i + 1 << "\t" << items[i] << "\t$" << prices[i] << "\t\t" << order[i] << "\n";
+            outFile << i + 1 << "\t" << items[i] << "\t$" << prices[i] << "\t\t" << order[i] <<  "\t\t" << order[i] << "\n";
             total += subtotal;
         }
     }
