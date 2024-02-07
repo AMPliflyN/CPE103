@@ -9,7 +9,7 @@ public:
     void MainMenu();
     void FoodMenu();
     void OrderNew();
-    int addOrder();
+    int addOrder(char);
     
 private:
     int order[6];
