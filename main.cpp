@@ -10,39 +10,22 @@ using namespace std;
 int main()
 {
     McMapuaSystem menu;
-    string startString = "";
     cout << "===== Welcome to McMapua! =====\nPress Any key to Start...";
-    do
+    while(true)
     {
         if (kbhit())
         {
-            system("cls");
-            cout << "===== Welcome to McMapua! =====\n";
-            char c = getch();
-            switch (c)
+            switch (getch())
             {
                 case 't':
-                case 'e':
-                case 's':
-                    startString += c;
-                    cout << "Password: " << startString;
+                    menu.TestMode();
                     break;
                 default:
-                    startString = "#";
+                    menu.MainMenu();
                     break;
             }
         }
-
-    } while (startString != "#" && startString.length() < 4);
-
-    if (startString == "test")
-    {
-        menu.TestMode();
     }
-    else
-    {
-        menu.MainMenu();
-    }    
 
     return 0;
 }
