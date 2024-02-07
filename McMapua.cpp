@@ -111,6 +111,8 @@ void McMapuaSystem::OrderNew()
     {
         order[i] = 0;
     }
+
+    //Clears Screen
     system("cls");
     cout << "===== Press a number to add order! =====" << endl;
     FoodMenu();
