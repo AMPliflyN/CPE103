@@ -132,7 +132,7 @@ int McMapuaSystem::addOrder()
             cout << "Enter Quantity: " << s;
             if (c == '\n')
             {
-                return stoi(s);
+                
             }
             else if (c == '\b')
             {
