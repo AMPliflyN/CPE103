@@ -123,15 +123,21 @@ void McMapuaSystem::OrderNew()
             char c = getch();
             if (int(c) >= 49 && int(c) <= 54)
             {
-                order[c - 48] += addOrder(c);
+                order[c - 49] += addOrder(c);
+                system("cls");
+                cout << "===== Press a number to add order! =====" << endl;
+                FoodMenu();
             }
-            else if (c == '\n')
+            else if (c == '0')
             {
-                cout << "Preseed Enter\n";
+                cout << "Pressed 0\n";
                 loop = false;
             }
             else 
             {
+                system("cls");
+                cout << "===== Press a number to add order! =====" << endl;
+                FoodMenu();
                 cout << "Invalid Input\n";
             }
         }
@@ -141,31 +147,9 @@ void McMapuaSystem::OrderNew()
 
 int McMapuaSystem::addOrder(char selected)
 {
-    string s;
-    system("cls");
+    int qty;
     cout << "You've selected: item #" << selected << "\n";
     cout << "Enter Quantity: ";
-    while (true)
-    {
-        if (kbhit())
-        {
-            char c = getch();
-            if (c == '\n')
-            {
-                break;
-            }
-            else if (c == '\b')
-            {
-                s.pop_back();
-            }
-            else
-            {
-                s += c;
-            }       
-            system("cls");
-            cout << "You've selected: item #" << selected << "\n";
-            cout << "Enter Quantity: " << s;     
-        }
-    }
-    return stoi(s);
+    cin >> qty;
+    return qty;
 }
