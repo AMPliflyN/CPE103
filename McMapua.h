@@ -8,7 +8,7 @@ public:
     void TestMode();
     void MainMenu();
     void FoodMenu();
-    void OrderNew();
+    void OrderMenu(bool);
     void Receipt();
     int addOrder(char);
     
