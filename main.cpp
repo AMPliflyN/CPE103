@@ -10,7 +10,7 @@ using namespace std;
 int main()
 {
     McMapuaSystem menu;
-    menu.MainMenu();
+    menu.MainMenu(true);
 
     return 0;
 }
