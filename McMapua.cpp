@@ -184,7 +184,7 @@ void McMapuaSystem::Receipt()
         if (order[i] > 0)
         {
             double subtotal = prices[i] * order[i];
-            outFile << i + 1 << "\t" << items[i] << "\t$" << prices[i] << "\t\t" << order[i]<< "\t\t" << subtotal << "\n";
+            outFile << i + 1 << "\t" << items[i] << "\t$" << prices[i] << "\t\t" << order[i]<< "\t\t$" << subtotal << "\n";
             total += subtotal;
         }
     }
