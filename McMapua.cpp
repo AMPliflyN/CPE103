@@ -44,7 +44,7 @@ void McMapuaSystem::TestMode()
                     << "===============================" << endl;
                 break;
             case '3':
-                OrderNew();
+                OrderMenu(true);
                 break;
             case '4':
                 cout << "addOrder Returned: " << addOrder('E') << endl;
@@ -58,11 +58,12 @@ void McMapuaSystem::TestMode()
 
 void McMapuaSystem::MainMenu()
 {
+    bool loop = true;
     system("cls");
     cout << "===== Welcome to McMapua! =====\n"
-    << "1. OrderNew\n"
-    << "2. Calculate Order\n"
-    << "3. Import Previous Order\n"
+    << "1. Make a new order\n"
+    << "2. Edit current order\n"
+    << "3. Print Receipt\n"
     << "4. Exit\n"
     << "===============================" << endl;
 
@@ -73,21 +74,30 @@ void McMapuaSystem::MainMenu()
             switch (getch())
             {
                 case '1':
-                    OrderNew();
+                    OrderMenu(true);
                     break;
                 case '2':
-                    cout << "Calculate Order\n";
-                    Receipt();
+                    OrderMenu(false);
                     break;
                 case '3':
-                    cout << "Import Previous Order\n";
+                    cout << "Print Receipt\n";
+                    Receipt();
                     break;
                 case '4':
-                    return;
+                    cout << "Exit\n";
+                    loop = false;
+                    break;
+                default:
+                    cout << "Invalid Input\n";
+                    break;
             }
         }
-
-    } while (true);
+    } while (loop);
+    {
+        /* code */
+    }
+    
+    return;
 }
 
 
@@ -102,20 +112,23 @@ void McMapuaSystem::FoodMenu()
     << "4.\tSalad\t$4.99\t" << order[3] << '\n'
     << "5.\tFries\t$2.99\t" << order[4] << '\n'
     << "6.\tDrink\t$1.99\t" << order[5] << '\n'
-    << "===============================" << endl;
+    << "====================================================" << endl;
 }
 
 
 //Gets the numerical value and collects them as the number of orders per meal
-void McMapuaSystem::OrderNew()
+void McMapuaSystem::OrderMenu(bool isNewOrder)
 {
     bool loop =  true;
-    for (int i = 0; i < 6; i++)
+    if (isNewOrder)
     {
-        order[i] = 0;
+        for (int i = 0; i < 6; i++)
+        {
+            order[i] = 0;
+        }
     }
     system("cls");
-    cout << "===== Press a number to add order! =====" << endl;
+    cout << "===== Press a number to add order! (0 to exit) =====" << endl;
     FoodMenu();
     do
     {
@@ -126,7 +139,7 @@ void McMapuaSystem::OrderNew()
             {
                 order[c - 49] += addOrder(c);
                 system("cls");
-                cout << "===== Press a number to add order! =====" << endl;
+                cout << "===== Press a number to add order! (0 to exit) =====" << endl;
                 FoodMenu();
             }
             else if (c == '0')
@@ -137,13 +150,13 @@ void McMapuaSystem::OrderNew()
             else 
             {
                 system("cls");
-                cout << "===== Press a number to add order! =====" << endl;
+                cout << "===== Press a number to add order! (0 to exit) =====" << endl;
                 FoodMenu();
                 cout << "Invalid Input\n";
             }
         }
-
     } while (loop);
+    MainMenu();
 }
 
 int McMapuaSystem::addOrder(char selected)
